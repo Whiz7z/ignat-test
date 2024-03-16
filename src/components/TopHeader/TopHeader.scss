@@ -1,0 +1,82 @@
+@import "../../variables/variables.scss";
+
+.top-header-container {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 12% 1fr 12%;
+  background: $mainBlack;
+  .top-header {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column: 2/3;
+    font-size: 1.6rem;
+    color: $white;
+    padding: 1.6rem 0;
+  }
+}
+
+.info {
+  display: flex;
+  gap: 2.3rem;
+
+  .phone {
+  }
+  .help {
+    cursor: pointer;
+  }
+}
+
+.links {
+  justify-self: flex-end;
+  display: flex;
+  gap: 0.5rem;
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+  .login {
+  }
+  .register {
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .top-header-container {
+    .top-header {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .top-header-container {
+    .top-header {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .top-header-container {
+    .top-header {
+      font-size: 1rem;
+    }
+  }
+
+  .info {
+    gap: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .top-header-container {
+    .top-header {
+      font-size: 0.9rem;
+    }
+  }
+
+  .info {
+    gap: 1rem;
+  }
+}

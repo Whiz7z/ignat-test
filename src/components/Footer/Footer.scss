@@ -1,0 +1,258 @@
+@import "../../variables/variables.scss";
+
+.footer-container {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 12% 1fr 12%;
+  margin-top: 8rem;
+  hr {
+    background-color: #ccc;
+    grid-column: 1/4;
+    width: 100%;
+  }
+
+  .top-footer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 4fr 3fr 3fr 3fr;
+    grid-column: 2/3;
+    font-size: 1.6rem;
+
+    padding: 1.6rem 0;
+
+    .block {
+      h5 {
+        font-size: 1.6rem;
+        color: $mainBlack;
+        margin: 14px 0;
+        font-weight: 500;
+      }
+
+      ul {
+        padding: 0;
+        display: grid;
+        row-gap: 1.2rem;
+        margin: 0;
+        li {
+          list-style-type: none;
+          color: $gray60;
+          font-weight: 400;
+
+          a {
+            color: $gray60;
+            text-decoration: none;
+            transition: 0.3s;
+            &:hover {
+              text-decoration: underline;
+              color: $mainBlack;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .bottom-footer {
+    margin-top: 4rem;
+    width: 100%;
+    grid-column: 1/4;
+    background-color: $mainBlack;
+    display: grid;
+    grid-template-columns: 12% 1fr 1fr 12%;
+    padding: 40px 0;
+    .nav {
+      grid-column: 2/3;
+      display: flex;
+      gap: 30px;
+      align-self: center;
+      li {
+        list-style-type: none;
+        align-self: center;
+
+        a {
+          color: $white;
+          font-size: 1.6rem;
+          transition: 0.3s;
+          text-decoration: none;
+          text-transform: uppercase;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .copyright {
+      grid-column: 3/4;
+      color: $white;
+      font-size: 1.2rem;
+      align-self: center;
+      justify-self: end;
+    }
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .footer-container {
+    .top-footer {
+      font-size: 1.4rem;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      justify-items: center;
+      row-gap: 2rem;
+
+      .contact {
+        justify-self: start;
+      }
+
+      .profile {
+        justify-self: start;
+      }
+
+      .clients {
+        justify-self: end;
+      }
+
+      .about {
+        justify-self: end;
+      }
+    }
+
+    .bottom-footer {
+      .nav {
+        gap: 20px;
+        li {
+          a {
+            font-size: 1.4rem;
+          }
+        }
+      }
+
+      .copyright {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .footer-container {
+    .top-footer {
+    }
+
+    .bottom-footer {
+      row-gap: 2rem;
+      padding-bottom: 1rem;
+      .nav {
+        grid-column: 2/4;
+        gap: 20px;
+        justify-self: center;
+        margin-bottom: 4rem;
+
+        li {
+          a {
+            font-size: 1.4rem;
+          }
+        }
+      }
+
+      .copyright {
+        font-size: 1rem;
+        grid-column: 2/4;
+        grid-row: 2/3;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer-container {
+    .top-footer {
+      font-size: 1.2rem;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      justify-items: center;
+      row-gap: 2rem;
+
+      .block {
+        ul {
+          row-gap: 0.8rem;
+        }
+      }
+    }
+
+    .bottom-footer {
+      .nav {
+        gap: 1.5rem;
+        li {
+          a {
+            font-size: 1.2rem;
+          }
+        }
+      }
+
+      .copyright {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .footer-container {
+    .top-footer {
+      .block {
+        h5 {
+          font-size: 1.3rem;
+        }
+      }
+      font-size: 1.2rem;
+    }
+
+    .bottom-footer {
+      .nav {
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        li {
+          a {
+            font-size: 1.2rem;
+          }
+        }
+      }
+
+      .copyright {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .footer-container {
+    .top-footer {
+      .block {
+        h5 {
+          font-size: 1.2rem;
+        }
+      }
+      font-size: 1rem;
+    }
+
+    .bottom-footer {
+      .nav {
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        li {
+          a {
+            font-size: 1.2rem;
+          }
+        }
+      }
+
+      .copyright {
+        font-size: 1rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,177 @@
+@import "../../variables/variables.scss";
+
+.reviews {
+  width: 100%;
+  grid-column: 2/3;
+  position: relative;
+  margin-top: 100px;
+  .reviews-header {
+    display: flex;
+    position: absolute;
+    width: auto;
+    top: -20px;
+
+    h3 {
+      font-size: 2.6rem;
+      color: $mainBlack;
+      position: relative;
+      margin-right: 1.5rem;
+    }
+
+    span {
+      color: $gray40;
+      font-size: 1.5rem;
+      position: absolute;
+      bottom: 5px;
+      right: -30px;
+      font-weight: 300;
+    }
+  }
+}
+
+.reviews-slider {
+  display: grid;
+  row-gap: 2.7rem;
+  .navigation {
+    justify-self: end;
+    color: $mainBlack;
+    font-size: 1.6rem;
+    display: flex;
+    gap: 2rem;
+
+    .pages {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .arrows {
+      display: flex;
+      gap: 2rem;
+      cursor: pointer;
+    }
+  }
+
+  .slider {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 3rem;
+
+    .empty {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .card {
+      border: 1px solid black;
+      border-radius: 10px;
+      padding: 3rem 3.7rem;
+      display: grid;
+      row-gap: 2rem;
+      transition: all 0.3s ease-in-out;
+
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        .user-photo {
+          height: 50px;
+          width: 50px;
+        }
+        .user-info {
+          .rating {
+            display: flex;
+            gap: 0.5rem;
+          }
+          .name {
+            font-size: 1.6rem;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
+    .user-review {
+      p {
+        font-size: 1.6rem;
+        color: $gray60;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1420px) {
+  .reviews {
+    .reviews-slider {
+      .slider {
+        grid-template-columns: 1fr 1fr 1fr;
+        row-gap: 3rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1090px) {
+  .reviews {
+    .reviews-slider {
+      .slider {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 3rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .reviews {
+    .reviews-header {
+      top: -50px;
+    }
+    .reviews-slider {
+      .slider {
+        grid-template-columns: 1fr;
+        row-gap: 3rem;
+        .card {
+          width: 270px;
+          justify-self: center;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .reviews {
+    .reviews-slider {
+      .slider {
+        grid-template-columns: 1fr;
+        row-gap: 2rem;
+        .card {
+          width: 200px;
+          justify-self: center;
+          padding: 2rem 2.4rem;
+
+          .user {
+            gap: 1rem;
+
+            .user-photo {
+              height: 40px;
+              width: 40px;
+            }
+            .user-info {
+              .name {
+                font-size: 1.2rem;
+              }
+            }
+          }
+        }
+
+        .user-review {
+          p {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+}

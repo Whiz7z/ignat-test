@@ -1,0 +1,240 @@
+@import "../../variables/variables.scss";
+
+.offers-container {
+  grid-column: 2/3;
+  display: grid;
+  row-gap: 2.7rem;
+  margin-top: 80px;
+
+  h3 {
+    font-size: 2.6rem;
+    color: $mainBlack;
+  }
+
+  .offers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 3rem;
+    .card {
+      display: grid;
+      row-gap: 0.5rem;
+      transition: 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.01);
+      }
+      .photo {
+        position: relative;
+        img {
+          border-radius: 3px;
+        }
+
+        .to-favorites {
+          position: absolute;
+          width: 35px;
+          height: 35px;
+          background: white;
+          display: grid;
+          place-items: center;
+          justify-items: center;
+          top: 10px;
+          right: 10px;
+          border-radius: 50%;
+        }
+      }
+
+      .info {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 1rem;
+        h4 {
+          font-size: 2rem;
+          color: $mainBlack;
+        }
+
+        .sex-colors {
+          font-size: 1.6rem;
+          color: $gray60;
+        }
+
+        .price {
+          color: $good;
+          font-size: 2rem;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .more-btn {
+    display: grid;
+    justify-self: center;
+    justify-items: center;
+    margin-top: 3.3rem;
+    button {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      color: $gray60;
+      font-size: 1.6rem;
+    }
+    .arrows {
+      margin-top: 0.5rem;
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (max-width: 1220px) {
+  .offers-container {
+    .offers {
+      .card {
+        .info {
+          row-gap: 0.4rem;
+          h4 {
+            font-size: 1.6rem;
+          }
+          .sex-colors {
+            font-size: 1.4rem;
+          }
+
+          .price {
+            font-size: 1.6rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1160px) {
+  .offers-container {
+    .offers {
+      column-gap: 1.5rem;
+      .card {
+        .info {
+          row-gap: 0.4rem;
+          h4 {
+            font-size: 1.4rem;
+          }
+          .sex-colors {
+            font-size: 1.2rem;
+          }
+
+          .price {
+            font-size: 1.4rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .offers-container {
+    .offers {
+      .card {
+        .info {
+          row-gap: 0.4rem;
+          h4 {
+            font-size: 1.2rem;
+          }
+          .sex-colors {
+            font-size: 1rem;
+          }
+
+          .price {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .offers-container {
+    .offers {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      row-gap: 2rem;
+      .card {
+        width: 400px;
+        .info {
+          row-gap: 0.4rem;
+          h4 {
+            font-size: 1.6rem;
+          }
+          .sex-colors {
+            font-size: 1.4rem;
+          }
+
+          .price {
+            font-size: 1.6rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .offers-container {
+    .offers {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      row-gap: 2rem;
+      .card {
+        width: 100%;
+        .info {
+          row-gap: 0.4rem;
+          h4 {
+            font-size: 1.6rem;
+          }
+          .sex-colors {
+            font-size: 1.4rem;
+          }
+
+          .price {
+            font-size: 1.6rem;
+          }
+        }
+      }
+    }
+
+    .more-btn {
+      margin-top: 2rem;
+      button {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .offers-container {
+    .offers {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      row-gap: 2rem;
+      .card {
+        width: 100%;
+        .info {
+          row-gap: 0.4rem;
+          h4 {
+            font-size: 1.4rem;
+          }
+          .sex-colors {
+            font-size: 1.2rem;
+          }
+
+          .price {
+            font-size: 1.4rem;
+          }
+        }
+      }
+    }
+  }
+}
