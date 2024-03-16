@@ -108,9 +108,6 @@ const ReviewsSlider = () => {
     }
   };
 
-  useEffect(() => {
-    console.log(page);
-  }, [page]);
   return (
     <div className="reviews-slider">
       <div className="navigation">
