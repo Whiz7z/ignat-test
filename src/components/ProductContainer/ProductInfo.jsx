@@ -51,7 +51,7 @@ const ProductInfo = () => {
       </div>
 
       <div className="color-picker">
-        <p>Оберіть солір</p>
+        <p>Оберіть колір</p>
         <div className="colors">
           <span
             className={`color white ${activeColor === 0 ? "active" : ""}`}

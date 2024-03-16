@@ -112,7 +112,7 @@ const ReviewsSlider = () => {
     <div className="reviews-slider">
       <div className="navigation">
         <div className="pages">
-          <span>01</span>
+          <span>0{page}</span>
           <span>/</span>
           <span>03</span>
         </div>
