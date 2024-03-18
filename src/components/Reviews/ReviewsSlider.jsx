@@ -94,6 +94,23 @@ const REVIEWS = [
 const ReviewsSlider = () => {
   const [page, setPage] = useState(1);
 
+  const left = REVIEWS.length % 4;
+  const filledPages = Math.floor(REVIEWS.length / 4);
+
+  let nestedArray = [];
+
+  nestedArray.push(REVIEWS.slice(0, left));
+
+  for (let i = 0, j = left; i < filledPages; i++, j = j + 4) {
+    if (nestedArray.length === filledPages + 1) {
+      break;
+    }
+    console.log(j);
+    nestedArray.push(REVIEWS.slice(j, j + 4));
+  }
+
+  console.log(nestedArray);
+
   const [swiperRef, setSwiperRef] = useState();
 
   const ArrowLeftHandler = () => {
@@ -145,28 +162,19 @@ const ReviewsSlider = () => {
         a11y={{ enabled: true }}
         style={{ position: "relative", paddingTop: "30px" }}
       >
-        <SwiperSlide>
-          <div className="card empty">
-            <Plus />
-          </div>
-          <ReviewCard {...REVIEWS[0]} />
-          <ReviewCard {...REVIEWS[1]} />
-          <ReviewCard {...REVIEWS[2]} />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <ReviewCard {...REVIEWS[3]} />
-          <ReviewCard {...REVIEWS[4]} />
-          <ReviewCard {...REVIEWS[5]} />
-          <ReviewCard {...REVIEWS[6]} />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <ReviewCard {...REVIEWS[7]} />
-          <ReviewCard {...REVIEWS[8]} />
-          <ReviewCard {...REVIEWS[9]} />
-          <ReviewCard {...REVIEWS[10]} />
-        </SwiperSlide>
+        {nestedArray.length > 0 &&
+          nestedArray.map((array, index) => (
+            <SwiperSlide key={index}>
+              {array.length != 4 && (
+                <div className="card empty">
+                  <Plus />
+                </div>
+              )}
+              {array.map((item) => (
+                <ReviewCard key={item.id} {...item} />
+              ))}
+            </SwiperSlide>
+          ))}
       </Swiper>
       {/* </div> */}
     </div>
