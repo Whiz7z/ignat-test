@@ -1,8 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ArrowLeft from "./../../svg/ArrowLeft";
 import ArrowRight from "./../../svg/ArrowRight";
 import Plus from "./../../svg/Plus";
 import ReviewCard from "./ReviewCard";
+import { Scrollbar, A11y } from "swiper/modules";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 const REVIEWS = [
   {
@@ -87,14 +94,7 @@ const REVIEWS = [
 const ReviewsSlider = () => {
   const [page, setPage] = useState(1);
 
-  let reviews;
-  if (page === 1) {
-    reviews = REVIEWS.slice(0, 3 * page);
-  } else if (page === 2) {
-    reviews = REVIEWS.slice(3, 7);
-  } else if (page === 3) {
-    reviews = REVIEWS.slice(7, 11);
-  }
+  const [swiperRef, setSwiperRef] = useState();
 
   const ArrowLeftHandler = () => {
     if (page > 1) {
@@ -117,26 +117,58 @@ const ReviewsSlider = () => {
           <span>03</span>
         </div>
         <div className="arrows">
-          <span onClick={() => ArrowLeftHandler()}>
+          <span
+            onClick={() => {
+              swiperRef.slidePrev();
+              ArrowLeftHandler();
+            }}
+          >
             <ArrowLeft color={page === 1 ? "#959595" : "black"} />
           </span>
-          <span onClick={() => ArrowRightHandler()}>
+          <span
+            onClick={() => {
+              swiperRef.slideNext();
+              ArrowRightHandler();
+            }}
+          >
             <ArrowRight color={page === 3 ? "#959595" : "black"} />
           </span>
         </div>
       </div>
 
-      <div className="slider">
-        {reviews.length === 3 && (
+      <Swiper
+        className="swiper"
+        onSwiper={setSwiperRef}
+        slidesPerView={1}
+        spaceBetween={30}
+        centeredSlides
+        a11y={{ enabled: true }}
+        style={{ position: "relative", paddingTop: "30px" }}
+      >
+        <SwiperSlide>
           <div className="card empty">
             <Plus />
           </div>
-        )}
+          <ReviewCard {...REVIEWS[0]} />
+          <ReviewCard {...REVIEWS[1]} />
+          <ReviewCard {...REVIEWS[2]} />
+        </SwiperSlide>
 
-        {reviews.map((review) => {
-          return <ReviewCard key={review.id} {...review} />;
-        })}
-      </div>
+        <SwiperSlide>
+          <ReviewCard {...REVIEWS[3]} />
+          <ReviewCard {...REVIEWS[4]} />
+          <ReviewCard {...REVIEWS[5]} />
+          <ReviewCard {...REVIEWS[6]} />
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <ReviewCard {...REVIEWS[7]} />
+          <ReviewCard {...REVIEWS[8]} />
+          <ReviewCard {...REVIEWS[9]} />
+          <ReviewCard {...REVIEWS[10]} />
+        </SwiperSlide>
+      </Swiper>
+      {/* </div> */}
     </div>
   );
 };

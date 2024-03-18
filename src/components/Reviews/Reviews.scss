@@ -50,9 +50,34 @@
     }
   }
 
-  .slider {
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  // .swiper-slide {
+  //   text-align: center;
+  //   font-size: 18px;
+  //   background: #fff;
+
+  //   /* Center slide text vertically */
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  // }
+
+  // .swiper-slide img {
+  //   display: block;
+  //   width: 100%;
+  //   height: 100%;
+  //   object-fit: cover;
+  // }
+
+  .slider,
+  .swiper-slide {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    //display: flex;
     column-gap: 3rem;
 
     .empty {
@@ -108,7 +133,8 @@
 @media screen and (max-width: 1420px) {
   .reviews {
     .reviews-slider {
-      .slider {
+      .slider,
+      .swiper-slide {
         grid-template-columns: 1fr 1fr 1fr;
         row-gap: 3rem;
       }
@@ -119,7 +145,8 @@
 @media screen and (max-width: 1090px) {
   .reviews {
     .reviews-slider {
-      .slider {
+      .slider,
+      .swiper-slide {
         grid-template-columns: 1fr 1fr;
         row-gap: 3rem;
       }
@@ -133,7 +160,8 @@
       top: -50px;
     }
     .reviews-slider {
-      .slider {
+      .slider,
+      .swiper-slide {
         grid-template-columns: 1fr;
         row-gap: 3rem;
         .card {
@@ -148,7 +176,8 @@
 @media screen and (max-width: 360px) {
   .reviews {
     .reviews-slider {
-      .slider {
+      .slider,
+      .swiper-slide {
         grid-template-columns: 1fr;
         row-gap: 2rem;
         .card {
