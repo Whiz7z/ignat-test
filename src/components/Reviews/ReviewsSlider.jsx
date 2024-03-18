@@ -89,13 +89,6 @@ const REVIEWS = [
     review:
       "Дуже задоволений якістю обслуговування і самою продукцією. Купували термобілизну у подарунок, друзі...",
   },
-  {
-    id: 12,
-    name: "Петрик Петриков",
-    rating: 5,
-    review:
-      "Дуже задоволений якістю обслуговування і самою продукцією. Купували термобілизну у подарунок, друзі...",
-  },
 ];
 
 const ReviewsSlider = () => {
@@ -172,11 +165,32 @@ const ReviewsSlider = () => {
         {nestedArray.length > 0 &&
           nestedArray.map((array, index) => (
             <SwiperSlide key={index}>
-              {array.length != 4 && (
+              {array.length === 1 ? (
+                <>
+                  <div className="card empty">
+                    <Plus />
+                  </div>
+                  <div className="card empty">
+                    <Plus />
+                  </div>
+                  <div className="card empty">
+                    <Plus />
+                  </div>
+                </>
+              ) : array.length === 2 ? (
+                <>
+                  <div className="card empty">
+                    <Plus />
+                  </div>
+                  <div className="card empty">
+                    <Plus />
+                  </div>
+                </>
+              ) : array.length === 3 ? (
                 <div className="card empty">
                   <Plus />
                 </div>
-              )}
+              ) : null}
               {array.map((item) => (
                 <ReviewCard key={item.id} {...item} />
               ))}
