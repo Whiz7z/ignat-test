@@ -109,8 +109,6 @@ const ReviewsSlider = () => {
     nestedArray.push(REVIEWS.slice(j, j + 4));
   }
 
-  console.log(nestedArray);
-
   const [swiperRef, setSwiperRef] = useState();
 
   const ArrowLeftHandler = () => {
