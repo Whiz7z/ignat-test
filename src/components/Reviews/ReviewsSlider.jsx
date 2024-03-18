@@ -89,6 +89,13 @@ const REVIEWS = [
     review:
       "Дуже задоволений якістю обслуговування і самою продукцією. Купували термобілизну у подарунок, друзі...",
   },
+  {
+    id: 12,
+    name: "Петрик Петриков",
+    rating: 5,
+    review:
+      "Дуже задоволений якістю обслуговування і самою продукцією. Купували термобілизну у подарунок, друзі...",
+  },
 ];
 
 const ReviewsSlider = () => {
@@ -99,13 +106,15 @@ const ReviewsSlider = () => {
 
   let nestedArray = [];
 
-  nestedArray.push(REVIEWS.slice(0, left));
+  if (left > 0) {
+    nestedArray.push(REVIEWS.slice(0, left));
+  }
 
   for (let i = 0, j = left; i < filledPages; i++, j = j + 4) {
-    if (nestedArray.length === filledPages + 1) {
-      break;
-    }
-    console.log(j);
+    // if (nestedArray.length === filledPages + 1) {
+    //   break;
+    // }
+    //console.log(j);
     nestedArray.push(REVIEWS.slice(j, j + 4));
   }
 
